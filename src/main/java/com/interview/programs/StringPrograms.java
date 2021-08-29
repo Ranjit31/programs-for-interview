@@ -1,7 +1,12 @@
 package com.interview.programs;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StringPrograms {
@@ -35,6 +40,18 @@ public class StringPrograms {
 		StringBuilder sb = new StringBuilder(a);
 		System.out.println(sb.deleteCharAt(4));
 		
+		System.out.println("******************************");
+		System.out.println("==========find the duplicate elements===========");
+		List<String> strList = Arrays.asList("Dev", "Ram", "Rajesh", "Abhay", "Ram", "Dev", "Abhay", "abhay");
+		
+		Set<String> uniqueElements = new HashSet<>();
+		List<String> dupicateList = strList.stream().filter(i -> !uniqueElements.add(i)).collect(Collectors.toList());
+		dupicateList.stream().forEach(System.out :: println);
+		
+		System.out.println("******************************");
+		Set<String> uniqueElements1 = new HashSet<>();
+		List<String> uniqueList = strList.stream().filter(i -> uniqueElements1.add(i)).collect(Collectors.toList());
+		uniqueList.stream().forEach(System.out :: println);
  	}
 
 }
