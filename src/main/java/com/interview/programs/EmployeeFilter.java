@@ -1,6 +1,7 @@
 package com.interview.programs;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -102,8 +103,18 @@ public class EmployeeFilter {
 		System.out.println("=========sort by Dept and name=========");
 		
 		Comparator<Employee> compareByNameDept = Comparator.comparing(Employee :: getDepartment).thenComparing(Employee :: getName);
-		List<Employee> empSortIdName = empArrayList.stream().sorted(compareByNameDept).collect(Collectors.toList());
-		empSortIdName.forEach(System.out :: println);
+		List<Employee> empSortDeptName = empArrayList.stream().sorted(compareByNameDept).collect(Collectors.toList());
+		empSortDeptName.forEach(System.out :: println);
+		
+		System.out.println("******************************");
+		
+		List<Employee> empSortingDeptName = empArrayList.stream().sorted(Comparator.comparing(Employee :: getDepartment).thenComparing(Employee :: getName)).collect(Collectors.toList());
+		empSortingDeptName.forEach(System.out :: println);
+		
+		System.out.println("******************************");
+		
+		Collections.sort(empArrayList, Comparator.comparing(Employee :: getDepartment).thenComparing(Employee :: getName));
+		empArrayList.forEach(System.out :: println);
 		
 		System.out.println("******************************");
 		System.out.println("=========Max and Min Salary of Employees=========");

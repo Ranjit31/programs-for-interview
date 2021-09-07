@@ -27,12 +27,6 @@ public class StringPrograms {
 		
 		System.out.println(Largest.get());
 		
-		//Random Execution
-		
-		Stream<String> st = Stream.iterate("", (str) -> str + "x"); 
-		
-		System.out.println(st.limit(3).map(str -> str + "y"));
-		
 		System.out.println("******************************");
 		System.out.println("==========to remove i (only 4th index) from string mission===========");
 		
@@ -49,9 +43,17 @@ public class StringPrograms {
 		dupicateList.stream().forEach(System.out :: println);
 		
 		System.out.println("******************************");
+		System.out.println("==========find the unique elements===========");
+		
 		Set<String> uniqueElements1 = new HashSet<>();
 		List<String> uniqueList = strList.stream().filter(i -> uniqueElements1.add(i)).collect(Collectors.toList());
 		uniqueList.stream().forEach(System.out :: println);
+		
+		System.out.println("******************************");
+		System.out.println("==========String immutable===========");
+		String s = "Rajesh";
+		s = "Ranjit";
+		System.out.println("String Object "+s.toString());
  	}
 
 }
